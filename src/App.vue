@@ -3,7 +3,7 @@
     <h2>{{name + " " + age}}</h2>
     <p v-for="a in items" :key="a">{{ a }}</p>
     <p v-for="b in price" :key="b" v-if="b > 500">{{b}}</p>
-    <p v-on:click="earth">{{mars}}</p>
+    <p v-on:click="mars">{{mars}}</p>
   </div>
 </template>
 <script>
@@ -16,7 +16,16 @@ export default {
       items: ["id", "title"],
       price: [400, 500, 600, 700],
       mars: 'Марс',
-      earth: 'Земля'
+      // earth: 'Земля',
+    }
+  },
+  methods: {
+    mars() {
+      if(this.mars) {
+        return 'Марс'
+      } else {
+        return 'Земля'
+      }
     }
   }
 };
