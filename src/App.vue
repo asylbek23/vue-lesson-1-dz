@@ -3,7 +3,7 @@
     <h2>{{name + " " + age}}</h2>
     <p v-for="a in items" :key="a">{{ a }}</p>
     <p v-for="b in price" :key="b" v-if="b > 500">{{b}}</p>
-    <p v-on:click="name">{{name}}</p>
+    <p v-on:click="earth">{{name}}</p>
   </div>
 </template>
 <script>
