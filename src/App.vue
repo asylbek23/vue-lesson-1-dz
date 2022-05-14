@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h2>{{name + " " + age}}</h2>
+    <p v-for="a in items" :key="a">{{ a }}</p>
+    <p v-for="b in price" :key="b" v-if="b > 500">{{b}}</p>
+    <p v-on:click="">{{name}}</p>
   </div>
 </template>
-
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
+  data() {
+    return {
+      name: 'Dos',
+      age: 55,
+      items: ["id", "title"],
+      price: [400, 500, 600, 700],
+      name: 'Марс'
+    }
+  }
 };
 </script>
 
