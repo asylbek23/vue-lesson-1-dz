@@ -1,34 +1,83 @@
 <template>
+
   <div id="app">
-    <h2>{{name + " " + age}}</h2>
-    <p v-for="a in items" :key="a">{{ a }}</p>
-    <p v-for="b in price" :key="b" v-if="b > 500">{{b}}</p>
-    <p v-on:click="mars">{{mars}}</p>
+    <h1>Lesson 2</h1>
+
+    <!-- One РЕШЕНА -->
+    <div class="one" v-for="a in searcher" :key="a" v-on:click="searchTitle(a)">
+      {{a.title}}
+    </div>
+
+    <!-- Two НЕ РЕШЕНА-->
+    <div class="two" style="margin-top: 20px;">
+      <input type="text">
+      <button v-on:click="showInputText">Button</button>
+      <p>{{ username }}</p>
+    </div>
+
+    <!-- Three НЕ РЕШЕНА -->
+    <div class="three" style="margin-top: 20px;">
+      <input type="text" v-bind:value="search" v-on:input="showInputType">
+      <p>{{ search }}</p>
+    </div>
+
+    <!-- Four НЕ РЕШЕНА -->
+    <div class="four" style="margin-top: 20px;">
+      <div v-for="a in lists" :key="a">{{ a }}</div>
+      <button v-on:click="addElement">Button</button>
+    </div>
+
+    <!-- Five НЕ РЕШЕНА -->
+    <div class="five" style="margin-top: 20px;">
+      <input type="text" v-bind:input="inputText" v-on:="">
+      <p>Я невидимый</p>
+    </div>
   </div>
+
 </template>
+
 <script>
+
 export default {
   name: "App",
+
   data() {
     return {
-      name: 'Dos',
-      age: 55,
-      items: ["id", "title"],
-      price: [400, 500, 600, 700],
-      mars: 'Марс',
-      // earth: 'Земля',
+      searcher: [
+        {
+          id: 1,
+          title: "google"
+        },
+        {
+          id: 2,
+          title: "yandex"
+        }
+      ],
+
+      username: "",
+
+      search: "",
+
+      lists: [],
     }
   },
+
   methods: {
-    mars() {
-      if(this.mars) {
-        return 'Марс'
-      } else {
-        return 'Земля'
-      }
+    searchTitle(a) {
+      return console.log(a.title);
+    },
+
+    showInputType(event) {
+      console.log(event.target.value);
+      this.search = event.target.value;
+    },
+
+    addElement() {
+      this.lists.push('я vue разработчик')
     }
   }
 };
+
 </script>
 
 <style>
